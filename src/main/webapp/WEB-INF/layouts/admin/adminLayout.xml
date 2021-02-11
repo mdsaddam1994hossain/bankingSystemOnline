@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+        
+<tiles-definitions>  
+ 
+    <!-- Base Define -->
+    <definition name="adminLayout" 
+                template="/WEB-INF/layouts/admin/admin.jsp">
+        <put-attribute name="title" value="" />  
+        <put-attribute name="adminHeader" value="/WEB-INF/layouts/admin/adminHeader.jsp" />  
+        <put-attribute name="menue" value="/WEB-INF/layouts/admin/menue.jsp" />  
+    </definition>
+    <definition name="adminhome" 
+                extends="adminLayout">  
+        <put-attribute name="title" value="adminHome" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/admin/adminhome.jsp" />
+    </definition>
+    <definition name="allCustomer" 
+                extends="adminLayout">  
+        <put-attribute name="title" value="customer" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/admin/allCustomer.jsp" />
+    </definition>
+    <definition name="allAccount" 
+                extends="adminLayout">  
+        <put-attribute name="title" value="customer" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/admin/allAccount.jsp" />
+    </definition>
+    <definition name="incomeSource" 
+                extends="adminLayout">  
+        <put-attribute name="title" value="customer" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/admin/incomeSource.jsp" />
+    </definition>
+      
+ 
+   
+  
+</tiles-definitions> 

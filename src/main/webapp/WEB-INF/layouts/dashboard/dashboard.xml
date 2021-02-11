@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+        
+<tiles-definitions>  
+ 
+    <!-- Base Define -->
+    <definition name="default" 
+                template="/WEB-INF/layouts/dashboard/default.jsp">  
+        <put-attribute name="title" value="" />  
+        <put-attribute name="header" value="/WEB-INF/layouts/dashboard/header.jsp" />  
+        <put-attribute name="menu" value="/WEB-INF/layouts/dashboard/menue.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />
+
+    </definition>  
+ 
+    <!-- Home Page  -->
+    <definition name="home_page" extends="default">  
+        <put-attribute name="title" value="Home Page" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/home.jsp" />  
+    </definition>
+        <definition name="deposit" extends="default">  
+        <put-attribute name="title" value="Deposit" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/deposit.jsp" />  
+    </definition> 
+    <definition name="depositcal" extends="default">  
+        <put-attribute name="title" value="history" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/depositcal.jsp" />  
+    </definition> 
+    <definition name="withdraw" extends="default">  
+        <put-attribute name="title" value="withdraw" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/withdraw.jsp" />  
+    </definition>  
+    <definition name="withdracal" extends="default">  
+        <put-attribute name="title" value="withdraw" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/withdracal.jsp" />  
+    </definition>  
+    <definition name="transfer" extends="default">  
+        <put-attribute name="title" value="transfer" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/transfer.jsp" />  
+    </definition>  
+    <definition name="transfercal" extends="default">  
+        <put-attribute name="title" value="transfer" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/transfercal.jsp" />  
+    </definition>  
+    <definition name="history" extends="default">  
+        <put-attribute name="title" value="history" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/history.jsp" />  
+    </definition>   
+    <definition name="utility" extends="default">  
+        <put-attribute name="title" value="utility" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/utility.jsp" />  
+    </definition>   
+    <definition name="utilitycal" extends="default">  
+        <put-attribute name="title" value="utility" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/utilitycal.jsp" />  
+    </definition>   
+    <definition name="utilityCharge" extends="default">  
+        <put-attribute name="title" value="utility" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/utilityCharge.jsp" />  
+    </definition>   
+    <definition name="createnew" extends="default">  
+        <put-attribute name="title" value="history" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/createnew.jsp" />  
+    </definition> 
+      
+    <definition name="error" extends="default">  
+        <put-attribute name="title" value="error" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/error.jsp" />  
+    </definition>   
+    
+    <definition name="transfermyaccount" extends="default">  
+        <put-attribute name="title" value="transfer" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/transfermyaccount.jsp" />  
+    </definition>   
+    <definition name="transferdiscount" extends="default">  
+        <put-attribute name="title" value="transfer" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/transferdiscount.jsp" />  
+    </definition>   
+    <definition name="mobile" extends="default">  
+        <put-attribute name="title" value="mobile" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/mobile.jsp" />  
+    </definition>   
+    <definition name="mobilecal" extends="default">  
+        <put-attribute name="title" value="mobile" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/mobilecal.jsp" />  
+    </definition>   
+    <definition name="mobileCharge" extends="default">  
+        <put-attribute name="title" value="mobile" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/mobileCharge.jsp" />  
+    </definition>   
+    <definition name="withdrawdiscount" extends="default">  
+        <put-attribute name="title" value="withdrawdiscount" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/withdrawdiscount.jsp" />  
+    </definition>   
+    <definition name="accountSetting" extends="default">  
+        <put-attribute name="title" value="withdrawdiscount" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/accountSetting.jsp" />  
+    </definition>   
+    <definition name="checkCodeNumber" extends="default">  
+        <put-attribute name="title" value="withdrawdiscount" />  
+        <put-attribute name="body" value="/WEB-INF/layouts/dashboard/checkCodeNumber.jsp" />  
+    </definition>   
+     
+       
+       
+
+  
+</tiles-definitions> 
