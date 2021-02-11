@@ -76,6 +76,7 @@ public class AdminController {
               m.addAttribute("afixed", afixed.size());
               m.addAttribute("asaving", asaving.size());
               
+              // hello mamunur rashid
               
             return "adminhome";
     }
