@@ -261,8 +261,11 @@ public class HomeController {
         m.addAttribute("amounts",amount);
 //        m.addAttribute("discounts",discounts);
 //        m.addAttribute("afterdiscount",afterdiscount);
-
-  m.addAttribute("pinNumber",5540);
+    
+        int verifyNumber =(int) (Math.random() * 10000);
+        
+        System.out.println("verify number is -----------"+ verifyNumber);
+       
        
 //        
 //        session.setAttribute("anumber", accountNumber);
