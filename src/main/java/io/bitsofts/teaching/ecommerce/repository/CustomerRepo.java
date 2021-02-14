@@ -24,6 +24,7 @@ public interface CustomerRepo extends CrudRepository<Customer, Integer>{
     @Override
     public Optional<Customer> findById(Integer custId);
     
+    public Customer findByCustId(Integer custId);
     
     
     Customer findByEmail(String email);

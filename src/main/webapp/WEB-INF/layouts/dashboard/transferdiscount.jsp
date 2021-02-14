@@ -12,11 +12,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="row bg-praimary" style="height: 50px">
-
-
+        
+        
+        <div class="row bg-light mt-3">
+            <h4 class="text-warning mt-3 ml-3">TRANSFER FUNDS</h4>
+           
         </div>
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-md-1">
                 
             </div>

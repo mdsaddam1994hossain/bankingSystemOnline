@@ -22,11 +22,11 @@ public interface AccountRepo extends JpaRepository<Account, Integer>{
   List<Account> findAllByCustId(Integer custId);
 
 
-    public Optional<Account> findByAccountNumber(Integer accountNumber);
+  //  public Optional<Account> findByAccountNumber(Integer accountNumber);
     
    List<Account> findByAccountType(String accooutType);
 
- //  Account findByAccountNumber(int accountNumber);
+   Account findByAccountNumber(int accountNumber);
     
     
    

@@ -66,6 +66,8 @@ public class HomeController {
     @Autowired
     CustomerRepo cr;
 
+    
+    //Home page 
     @RequestMapping(method = RequestMethod.GET, value = "/home")
     public String home(Model m) {
         List<Account> accounts = ar.findAllByCustId(AuthController.customerId);
@@ -75,12 +77,14 @@ public class HomeController {
         return "home_page";
     }
 
+    //diplay deposit method page
     @RequestMapping(method = RequestMethod.GET, value = "/deposited")
     public String deposit() {
 
         return "deposit";
     }
 
+    //diplay deposit form page
     @RequestMapping(method = RequestMethod.GET, value = "/depositform")
     public String depositcal(@RequestParam("method") String method, Model m) {
 
@@ -94,13 +98,14 @@ public class HomeController {
         return "depositcal";
     }
 
+    //diposit calculation page
     @RequestMapping(method = RequestMethod.GET, value = "/depositsuccess")
     public String deposucc(@RequestParam("accountnumber") int accountNumber, @RequestParam("method") String method, @RequestParam("amount") double amount,@RequestParam("pinnumber") String pinnumber,Model m) {
 
         // update Account by deposit 
         if(pinnumber.equals("1234")){
         
-            Account a = ar.findByAccountNumber(accountNumber).get();
+            Account a = ar.findByAccountNumber(accountNumber);
         double oldbalance = a.getBalance();
         double newbalance = oldbalance + amount;
         a.setBalance(newbalance);
@@ -138,13 +143,14 @@ public class HomeController {
         
     }
 
+    // withdraw method page
     @RequestMapping(method = RequestMethod.GET, value = "/withdrawo")
     public String withdraw() {
 
         return "withdraw";
     }
     
-
+// withdraw form page
     @RequestMapping(method = RequestMethod.GET, value = "/withdrawfr")
     public String withdrawcal(@RequestParam("methods") String methods,Model m) {
                  
@@ -154,6 +160,8 @@ public class HomeController {
 
         return "withdracal";
     }
+    
+    // withdraw charge and calculation
     
     @RequestMapping(method = RequestMethod.GET, value = "/withdiscount")
     public String withdrawdis(@RequestParam("accountnumber") int accountNumber, @RequestParam("method") String method, @RequestParam("amount") double amount, Model m) {
@@ -171,12 +179,14 @@ public class HomeController {
         return "withdrawdiscount";
     }
 
+    // withdraw success method 
+    
     @RequestMapping(method = RequestMethod.GET, value = "/withdrawsuccess")
     public String withdrawsucc(@RequestParam("accountnumber") int accountNumber, @RequestParam("method") String method, @RequestParam("amount") double amount,@RequestParam("discount") double discount, Model m) {
 
         //update a Account by withdraw 
         
-        Account a = ar.findByAccountNumber(accountNumber).get();
+        Account a = ar.findByAccountNumber(accountNumber);
         double oldbalance = a.getBalance();
         
         if(oldbalance < amount){
@@ -211,16 +221,20 @@ public class HomeController {
             
         m.addAttribute("accounts",accounts);
 
-            System.out.println("with draw success----------------------------------------------"+amount);
+           
         return "home_page";}
     }
 
+    // Transfer method page
+    
     @RequestMapping(method = RequestMethod.GET, value = "/transfered")
     public String transfer() {
 
         return "transfer";
     }
 
+    // Transfer form page 
+    
     @RequestMapping(method = RequestMethod.GET, value = "/transferform")
     public String transfercal(@RequestParam("methods") String methods,Model m) {
 
@@ -230,6 +244,8 @@ public class HomeController {
         
         return "transfercal";
     }
+    // if Transfer myAccount to myAccount then it work
+    
     @RequestMapping(method = RequestMethod.GET, value = "transfermyaccount")
     public String transfercalmyaccount(@RequestParam("methods") String methods,Model m) {
 
@@ -241,40 +257,25 @@ public class HomeController {
         return "transfermyaccount";
     }
     
-//    @RequestMapping(method = RequestMethod.GET,value = "checkpin")
-//    public String checkNumber(Model m){
-//          m.addAttribute("pinNumber",5540);
-//        return "checkCodeNumber";
-//    }
+
     
-    
-    
+    // Transfer code verify this method and other data hold by this method
     @RequestMapping(method = RequestMethod.GET, value = "/transferdiscount")
     public String transferdis(@RequestParam("accountnumber") int accountNumber, @RequestParam("method") String method, @RequestParam("amount") double amount, Model m) {
-//
-//        double amounts = amount;
-//        double discounts = (amount/100)*1.2;
-//        double afterdiscount = amount - discounts;
+
+
         
         m.addAttribute("anumber",accountNumber);
         m.addAttribute("method",method);
         m.addAttribute("amounts",amount);
-//        m.addAttribute("discounts",discounts);
-//        m.addAttribute("afterdiscount",afterdiscount);
+
     
         int verifyNumber =(int) (Math.random() * 10000);
         
-        System.out.println("verify number is -----------"+ verifyNumber);
+        m.addAttribute("verifyNumber",verifyNumber);
        
        
-//        
-//        session.setAttribute("anumber", accountNumber);
-//        session.setAttribute("method", method);
-//        session.setAttribute("amount", amount);
-//        session.setAttribute("dis", discounts);
-//        session.setAttribute("afdiscount", afterdiscount);
-//        
-      //  return "transferdiscount";
+
       
        return "checkCodeNumber";
     }
@@ -294,15 +295,7 @@ public class HomeController {
 
  
        
-//        
-//        session.setAttribute("anumber", accountNumber);
-//        session.setAttribute("method", method);
-//        session.setAttribute("amount", amount);
-//        session.setAttribute("dis", discounts);
-//        session.setAttribute("afdiscount", afterdiscount);
-//        
-      //  return "transferdiscount";
-      
+
        return "transferdiscount";
     }
     
@@ -311,7 +304,7 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.GET, value = "/transfersuccess")
     public String transfersuc(@RequestParam("accountnumber") int accountNumber,@RequestParam("method") String method, @RequestParam("amount") double amount,@RequestParam("discount") double discount, Model m) {
 
-       Account a = ar.findByAccountNumber(accountNumber).get();
+       Account a = ar.findByAccountNumber(accountNumber);
         double oldbalance = a.getBalance();
         if(oldbalance < amount){
             return "error";
@@ -347,7 +340,7 @@ public class HomeController {
     public String transfermyaccountsucces(@RequestParam("accountnumber") int accountNumber,@RequestParam("toaccountnumber") int toaccountNumber,@RequestParam("method") String method, @RequestParam("amount") double amount, Model m) {
 
         
-        Account a = ar.findByAccountNumber(accountNumber).get();
+        Account a = ar.findByAccountNumber(accountNumber);
         double oldbalance = a.getBalance();
         if(oldbalance < amount){
             return "error";
@@ -358,7 +351,7 @@ public class HomeController {
         
         // IF Transfer to my account 
         
-        Account ta = ar.findByAccountNumber(toaccountNumber).get();
+        Account ta = ar.findByAccountNumber(toaccountNumber);
          double oldbalanc = ta.getBalance();
          double newbalancto = oldbalanc + amount;
          ta.setBalance(newbalancto);
@@ -437,7 +430,7 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.GET, value = "/utilitysuccess")
     public String utilitysucc(@RequestParam("accountnumber") int accountNumber, @RequestParam("service") String service, @RequestParam("totalamounts") double amount,@RequestParam("chargeamount") double chargeamount, Model m) {
 
-        Account a = ar.findByAccountNumber(accountNumber).get();
+        Account a = ar.findByAccountNumber(accountNumber);
         double oldbalance = a.getBalance();
         if(oldbalance < amount){
             return "error";
@@ -498,7 +491,7 @@ public class HomeController {
     @RequestMapping(method = RequestMethod.GET, value = "/mobilerechargeSuccess")
     public String mobilerechargesucc(@RequestParam("accountnumber") int accountNumber, @RequestParam("operator") String operator, @RequestParam("totalamounts") double amount, @RequestParam("chargeamount") double chargeamount, Model m) {
 
-        Account a = ar.findByAccountNumber(accountNumber).get();
+        Account a = ar.findByAccountNumber(accountNumber);
         double oldbalance = a.getBalance();
         if(oldbalance < amount){
             return "error";

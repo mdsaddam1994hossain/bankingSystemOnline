@@ -15,5 +15,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface TransferRepo extends JpaRepository<Transfer,Integer>{
-    
+     Transfer findByid(Integer id);
 }

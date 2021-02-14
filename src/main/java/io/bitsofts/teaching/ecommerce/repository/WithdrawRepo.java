@@ -17,4 +17,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface WithdrawRepo extends JpaRepository<Withdraw, Integer>{
     
+    Withdraw findByid(Integer id);
 }

@@ -19,5 +19,6 @@ public interface DepositRepo extends JpaRepository<Deposit, Integer>{
     @Override
     public <S extends Deposit> S save(S s);
     
+   Deposit findByid(Integer id);
     
 }

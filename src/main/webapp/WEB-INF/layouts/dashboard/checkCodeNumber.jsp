@@ -48,7 +48,7 @@
             <div class="mainbody bg-light">
                 <div>
                     
-                <input class="inputtext" value="${pinNumber}" > <br/>
+                <input class="inputtext" value="${verifyNumber}" > <br/>
                 <button type="submit" class="btn btn-warning" style="margin-left: 130;width: 250px;margin-top: 10px"  > submit</button> 
 
                 </div>
