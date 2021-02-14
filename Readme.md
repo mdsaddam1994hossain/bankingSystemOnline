@@ -8,5 +8,5 @@ Author Md Saddam Hossain
 - Admin Module
   
 ### Sample images
-![login](Image\login.JPG)
-![Home](Image\userHomePage.JPG)
+![login](./Image/login.JPG)
+![Home](./Image/userHomePage.JPG)
