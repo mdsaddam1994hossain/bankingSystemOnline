@@ -29,7 +29,7 @@ Author Md Saddam Hossain
 ```
 ![login](./Image/depositForm.PNG)
 ```
-## Transfer Form
+## Transfer method
 ```
 ![login](./Image/transfer.PNG)
 ```
