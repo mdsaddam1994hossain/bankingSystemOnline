@@ -5,6 +5,7 @@
  */
 package io.bitsofts.teaching.ecommerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
@@ -41,6 +42,7 @@ public class Customer {
     public void setCustId(int custId) {
         this.custId = custId;
     }
+
 
     @OneToMany(mappedBy = "customer")
     public Set<Account> getAccounts() {

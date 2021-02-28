@@ -5,6 +5,7 @@
  */
 package io.bitsofts.teaching.ecommerce.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -42,6 +43,7 @@ public class Account {
         this.accountNumber = accountNumber;
     }
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "custId", insertable = false, updatable = false)
     public Customer getCustomer() {

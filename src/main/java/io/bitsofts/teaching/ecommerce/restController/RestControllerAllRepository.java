@@ -22,6 +22,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -135,5 +137,14 @@ public class RestControllerAllRepository {
      return new ResponseEntity<>(hr.findByid(id),HttpStatus.OK);
   
   }
+  
+   @PostMapping(path = "/api/customer")
+    public ResponseEntity<Customer> insertCustomer(@RequestBody Customer c){
+        
+        cr.save(c);
+        
+        return new ResponseEntity<>(c,HttpStatus.OK);
+    
+    }
    
 }
