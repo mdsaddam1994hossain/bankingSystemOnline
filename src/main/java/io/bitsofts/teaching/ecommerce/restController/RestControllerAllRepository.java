@@ -23,6 +23,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -102,7 +103,29 @@ public class RestControllerAllRepository {
      return new ResponseEntity<>(ar.findByAccountNumber(id),HttpStatus.OK);
   
   }
+   // find all account by custId
+  
+  @GetMapping("/api/accountsByCustId")
+    public ResponseEntity<List<Account>> getAllAccountByCustomerId(int custId){
+         return new ResponseEntity<>(ar.findAllByCustId(custId), HttpStatus.OK);
+    }
+
+      //Create account or update Account 
+   @PutMapping(path = "/api/updateAccount")
+    public ResponseEntity<Account> updateAccount(@RequestBody Account a){
+        
+       ar.save(a);
+        
+        return new ResponseEntity<>(a,HttpStatus.OK);
+    
+    }
+    
+    
+    
+    
   // Deposit RestController 
+  
+  // find all deposits
   
   @GetMapping("/api/deposits")
     public ResponseEntity<List<Deposit>> getAllDeposit(){
@@ -115,6 +138,19 @@ public class RestControllerAllRepository {
      return new ResponseEntity<>(dr.findByid(id),HttpStatus.OK);
   
   }
+
+ 
+  
+  // insert deposits 
+  
+  @PostMapping(path = "/api/deposit")
+    public ResponseEntity<Deposit> depositsuccess(@RequestBody Deposit d){
+        
+        dr.save(d);
+        
+        return new ResponseEntity<>(d,HttpStatus.OK);
+    
+    }
   
   // Withdraw RestController 
   @GetMapping("/api/withdraws")

@@ -27,6 +27,10 @@ public interface AccountRepo extends JpaRepository<Account, Integer>{
    List<Account> findByAccountType(String accooutType);
 
    Account findByAccountNumber(int accountNumber);
+   
+  
+   
+   
     
     
    
