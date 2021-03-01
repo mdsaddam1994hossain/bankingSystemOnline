@@ -71,6 +71,17 @@ public class RestControllerAllRepository {
   
   }
   
+  // insert or create a customer
+  
+   @PostMapping(path = "/api/customer")
+    public ResponseEntity<Customer> insertCustomer(@RequestBody Customer c){
+        
+        cr.save(c);
+        
+        return new ResponseEntity<>(c,HttpStatus.OK);
+    
+    }
+  
   // Account RestController 
   
   @GetMapping("/api/accounts")
@@ -138,13 +149,6 @@ public class RestControllerAllRepository {
   
   }
   
-   @PostMapping(path = "/api/customer")
-    public ResponseEntity<Customer> insertCustomer(@RequestBody Customer c){
-        
-        cr.save(c);
-        
-        return new ResponseEntity<>(c,HttpStatus.OK);
-    
-    }
+  
    
 }
