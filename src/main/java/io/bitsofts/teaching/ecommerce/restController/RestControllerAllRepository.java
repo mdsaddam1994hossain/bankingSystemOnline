@@ -71,6 +71,13 @@ public class RestControllerAllRepository {
   
   }
   
+  @RequestMapping(method = RequestMethod.GET,value = "/api/customerByEmail")
+  public ResponseEntity<Customer> findByEmailAndPassword(String email,String password){
+      
+      return new ResponseEntity<Customer>(cr.findByEmailAndPassword(email, password),HttpStatus.OK);
+  
+  }
+  
   // insert or create a customer
   
    @PostMapping(path = "/api/customer")
