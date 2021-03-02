@@ -111,10 +111,14 @@ public class RestControllerAllRepository {
     }
 
       //Create account or update Account 
-   @PutMapping(path = "/api/updateAccount")
+   @PostMapping(path = "/api/updateAccount")
     public ResponseEntity<Account> updateAccount(@RequestBody Account a){
         
-       ar.save(a);
+       try {
+           ar.save(a);
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
         
         return new ResponseEntity<>(a,HttpStatus.OK);
     
@@ -146,8 +150,14 @@ public class RestControllerAllRepository {
   @PostMapping(path = "/api/deposit")
     public ResponseEntity<Deposit> depositsuccess(@RequestBody Deposit d){
         
-        dr.save(d);
         
+         try {
+             
+             System.out.println("get amount-------------------"+d.getAmount()); 
+           dr.save(d);
+       } catch (Exception e) {
+          e.printStackTrace();
+       }
         return new ResponseEntity<>(d,HttpStatus.OK);
     
     }
