@@ -39,6 +39,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class RestControllerAllRepository {
  
+  
   @Autowired
   private CustomerRepo cr;
   
@@ -110,7 +111,8 @@ public class RestControllerAllRepository {
          return new ResponseEntity<>(ar.findAllByCustId(custId), HttpStatus.OK);
     }
 
-      //Create account or update Account 
+      // account or update Account 
+    
    @PostMapping(path = "/api/updateAccount")
     public ResponseEntity<Account> updateAccount(@RequestBody Account a){
         
@@ -124,6 +126,22 @@ public class RestControllerAllRepository {
     
     }
     
+   
+    
+//    @PutMapping(path = "api/updateAccount")
+//    public ResponseEntity<Account> updateAccount(@RequestBody Account a){
+//       //   String[] updateurl = ["/api/updateAccount","/api/account"];
+//       
+//       try {
+//           ar.save(a);
+//       } catch (Exception e) {
+//           e.printStackTrace();
+//       }
+//        
+//        return new ResponseEntity<>(a,HttpStatus.OK);
+//    
+//    }
+   
     
     
     
