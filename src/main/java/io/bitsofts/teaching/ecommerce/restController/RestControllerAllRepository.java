@@ -206,6 +206,19 @@ public class RestControllerAllRepository {
   
   }
   
+   @PostMapping(path = "/api/transfer")
+    public ResponseEntity<Transfer> transfer(@RequestBody Transfer t){
+        
+       try {
+           tr.save(t);
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+        
+        return new ResponseEntity<>(t,HttpStatus.OK);
+    
+    }
+  
   // History RestController 
   
   @GetMapping("/api/historys")
@@ -220,6 +233,21 @@ public class RestControllerAllRepository {
   
   }
   
+  
+    @PostMapping(path = "/api/history")
+    public ResponseEntity<History> historysuccess(@RequestBody History h){
+        
+        
+         try {
+             
+             System.out.println("get amount-------------------"+h.getAmount()); 
+           hr.save(h);
+       } catch (Exception e) {
+          e.printStackTrace();
+       }
+        return new ResponseEntity<>(h,HttpStatus.OK);
+    
+    }
   
    
 }
