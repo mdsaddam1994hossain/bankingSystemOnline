@@ -90,6 +90,19 @@ public class RestControllerAllRepository {
         return new ResponseEntity<>(c,HttpStatus.OK);
     
     }
+    
+   @PostMapping(path = "/api/updateCustomer")
+    public ResponseEntity<Customer> updateCustomer(@RequestBody Customer c){
+        
+        
+        try {
+            cr.save(c);
+       } catch (Exception e) {
+       }
+
+        return new ResponseEntity<>(c,HttpStatus.OK);
+    
+    }
   
   // Account RestController 
   
@@ -110,8 +123,23 @@ public class RestControllerAllRepository {
     public ResponseEntity<List<Account>> getAllAccountByCustomerId(int custId){
          return new ResponseEntity<>(ar.findAllByCustId(custId), HttpStatus.OK);
     }
+    
+    //create Account 
+    
+      @PostMapping(path = "/api/createAccount")
+    public ResponseEntity<Account> createAccount(@RequestBody Account a){
+        
+       try {
+           ar.save(a);
+       } catch (Exception e) {
+           e.printStackTrace();
+       }
+        
+        return new ResponseEntity<>(a,HttpStatus.OK);
+    
+    }
 
-      // account or update Account 
+      //update Account 
     
    @PostMapping(path = "/api/updateAccount")
     public ResponseEntity<Account> updateAccount(@RequestBody Account a){
