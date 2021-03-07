@@ -10,7 +10,7 @@
 - User Module
 - Admin Module
 
-## Technogy Used
+## Technology Used
 - Spring boot for Autoconfiguration
 - Spring MVC For Web applcation development
 - jsp used for User Interface
