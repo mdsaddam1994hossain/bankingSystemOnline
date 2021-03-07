@@ -20,7 +20,10 @@ import org.springframework.stereotype.Repository;
 public interface HistoryRepo extends JpaRepository<History, Integer>{
     
     ArrayList<History> findAllByAccountNumber(Integer accountNumber);
+    
     History findByid(Integer id);
+    
+    
 //  
 //    @Query(nativeQuery = true, value="SELECT * FROM abbank.history where account_number = ? and transection_date between ? and ? ")
 //    ArrayList<History> findBy (int accountNumber,Date transectionDate,Date transectionDate);

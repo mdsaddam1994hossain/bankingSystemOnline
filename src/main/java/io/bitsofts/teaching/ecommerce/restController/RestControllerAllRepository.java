@@ -261,6 +261,11 @@ public class RestControllerAllRepository {
   
   }
   
+  @GetMapping("/api/historyByAcnumber")
+    public ResponseEntity<List<History>> getAllByAccountNumber(@RequestParam(name = "accountNumber")Integer acNumber){
+         return new ResponseEntity<>(hr.findAllByAccountNumber(acNumber), HttpStatus.OK);
+    }
+  
   
     @PostMapping(path = "/api/history")
     public ResponseEntity<History> historysuccess(@RequestBody History h){
